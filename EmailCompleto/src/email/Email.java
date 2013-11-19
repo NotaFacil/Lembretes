@@ -5,12 +5,14 @@ import java.util.Map;
 
 
 public class Email {
+	Lembrete lembrete;
 	
-	public Email(){
+	public Email(Lembrete lembrete){
 		super();
+		this.lembrete = lembrete;
 	}
 	
-	public void enviarEmail(Lembrete lembrete) {
+	public void enviarEmail() {
 			
 		String host = "smtp.gmail.com";
         String port = "587";
@@ -27,7 +29,7 @@ public class Email {
         body.append("<img src=\"cid:header\" />");
         body.append("</a>");
         body.append("<div style='width:881px; background-color:#FFFFFF'> ");
-        body.append(generateTable(lembrete));
+        body.append(generateTable());
 		body.append("<br/></div>");
         body.append("<img src=\"cid:footer\" />");
         body.append("</center>");
@@ -48,7 +50,7 @@ public class Email {
         }
 	}
 	
-	private String generateTable(Lembrete lembrete){
+	private String generateTable(){
 		String table = "" +
 			"<table>" +
 				"<th> <h3>" + getFirstName(lembrete.getUsuario().getNome()) + ", Seu Lembrete! </h3></th>" +
