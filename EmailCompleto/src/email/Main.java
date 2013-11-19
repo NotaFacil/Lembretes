@@ -1,6 +1,7 @@
 package email;
 
 
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -19,6 +20,11 @@ public class Main {
 		lembrete.setUsuario(usuario);
 
 		Email email = new Email(lembrete);
-		email.enviarEmail();
+//		email.enviarLembrete(lembrete);
+		
+		email.enviarConfirmação(usuario);
+		
 	}
+	
+	
 }
