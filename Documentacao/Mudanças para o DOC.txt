@@ -1,0 +1,23 @@
+Mudanças:
+	GITHUB:
+		-- Repositório utilizado GitHub
+		-- Usuario: notafacil.lembretes@gmail.com
+		-- Senha: N074faC1L
+	
+	Comitê de Mudança:
+		-- As mudanças serão avaliadas por um comitê. Esse comitê será constituído por 3 (três) frentes, sendo que 
+			1 representado pelo setor financeiro da empresa, para que possa ser avaliado os riscos economicos que a 
+			mudança possa trazer. 1 funcionario do setor de desenvolvimento, sendo representado por um programador senior, 
+			para avaliar os riscos no desenvolvimento do projeto, incluindo riscos de atrasos, e o P.O. para avaliar se é 
+			viável dar continuidade ao projeto ou cancelar todo o processo junto ao cliente.
+			
+	Fluxo de Mudança:
+		-- Ao ser solicitada uma mudança, a solicitação deve ser primeiramente formalizada em um documento,
+			após isso, essa solicitação será avaliada pelo comitê de mudança, que decidirá se a mudança será ou não aceita.
+			Caso a mundança não seja aceita, será justificado o motivo da reprova. Em caso de aceitação, deverá ser
+			verificado se tal mudança interferira no sprint atual, caso interfira, o sprint deverá ser cancelado, e 
+			deverão ser replanejados os próximos sprints. Caso contrário, os sprints tambem deverao ser replanejados 
+			com as novas tarefas, e para ambos os casos deverá realizar a documentação das mundanças.
+	
+	
+	
