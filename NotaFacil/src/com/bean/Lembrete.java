@@ -11,6 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * @author Rafael
+ *
+ */
 @Entity
 @Table(name = "lembrete")
 public class Lembrete implements Serializable{
@@ -47,6 +51,15 @@ public class Lembrete implements Serializable{
 	@JoinColumn(name = "usu_id")
 	private Usuario usuario;
 	
+	@Column(name = "lem_enviado")
+	private Integer enviado;
+	
+	public Integer getEnviado() {
+		return enviado;
+	}
+	public void setEnviado(Integer enviado) {
+		this.enviado = enviado;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -92,6 +105,9 @@ public class Lembrete implements Serializable{
 	public Usuario getUsuario() {
 		return usuario;
 	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	public Date getDhLembrar() {
 		return dhLembrar;
 	}
@@ -101,6 +117,7 @@ public class Lembrete implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -112,12 +129,16 @@ public class Lembrete implements Serializable{
 		result = prime * result + ((dhFim == null) ? 0 : dhFim.hashCode());
 		result = prime * result
 				+ ((dhInicio == null) ? 0 : dhInicio.hashCode());
+		result = prime * result
+				+ ((dhLembrar == null) ? 0 : dhLembrar.hashCode());
+		result = prime * result + ((enviado == null) ? 0 : enviado.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((local == null) ? 0 : local.hashCode());
 		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -147,6 +168,16 @@ public class Lembrete implements Serializable{
 				return false;
 		} else if (!dhInicio.equals(other.dhInicio))
 			return false;
+		if (dhLembrar == null) {
+			if (other.dhLembrar != null)
+				return false;
+		} else if (!dhLembrar.equals(other.dhLembrar))
+			return false;
+		if (enviado == null) {
+			if (other.enviado != null)
+				return false;
+		} else if (!enviado.equals(other.enviado))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -168,8 +199,5 @@ public class Lembrete implements Serializable{
 		} else if (!usuario.equals(other.usuario))
 			return false;
 		return true;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 }

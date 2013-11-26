@@ -60,7 +60,14 @@
       					<td><p style="padding-left: 60px; ">Configurações do ${sessionScope.usuarioNome}</h3></p></td>
       				</tr>
 				</table>
+				<br />
 				
+				<div class="input-group input-group-sm">
+					<span class="input-group-addon">Nome:</span>
+					<input name="nome" maxlength="100" type="text" class="form-control input-sm" placeholder="Nome">
+				</div>
+				
+
 			</div>
 		</div>
 		<div align="center" class="container">
