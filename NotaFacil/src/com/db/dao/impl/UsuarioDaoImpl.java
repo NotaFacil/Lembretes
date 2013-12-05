@@ -17,14 +17,16 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	private Session sessao;
 	private Transaction transacao;
 
-	public void salvar(Usuario usuario) {
+	public boolean salvar(Usuario usuario) {
 		try {
 			this.sessao = HibernateUtil.getSessionFactory().getCurrentSession();
 			this.transacao = this.sessao.beginTransaction();
 			this.sessao.save(usuario);
 			this.transacao.commit();
+			return true;
 		} catch (HibernateException e) {
 			System.out.println("Não foi possível inserir o usuario. Erro: " + e.getMessage());
+			return false;
 		} finally {
 			try {
 				if (this.sessao.isOpen()) {

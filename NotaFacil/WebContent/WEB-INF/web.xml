@@ -52,5 +52,12 @@
   	<servlet-name>carregar</servlet-name>
   	<url-pattern>/carregar.do</url-pattern>
   </servlet-mapping>
-    
+  <servlet>
+  	<servlet-name>cadastrar</servlet-name>
+  	<servlet-class>com.controller.InserirUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>cadastrar</servlet-name>
+  	<url-pattern>/cadastrar.do</url-pattern>
+  </servlet-mapping>
 </web-app>
