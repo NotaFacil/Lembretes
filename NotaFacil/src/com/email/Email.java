@@ -2,6 +2,7 @@ package com.email;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,20 +11,22 @@ import com.bean.Usuario;
 
 
 public class Email {
-	String host, port, mailFrom, password;
+	private static String host, port, mailFrom, password;
 	
 	public Email(){
 		super();
 	}
 	
-	private void configurarEmail(){
+	private static void configurarEmail(){
 		host = "smtp.gmail.com";
         port = "587";
         mailFrom = "notafacil.lembretes@gmail.com";
         password = "N074F4C1L";
 	}
 	
-	public void enviarLembrete(Lembrete lembrete) {
+	public static boolean enviarLembrete(Lembrete lembrete) {
+		System.out.println("Iniciando processo de envio de email para o lembrete id " + lembrete.getId() + " " + new Date());
+		
 		configurarEmail();
 		
         String mailTo = lembrete.getUsuario().getEmail();
@@ -51,13 +54,15 @@ public class Email {
         	System.out.println("Enviando Email...");
             EmbeddedImageEmailUtil.send(host, port, mailFrom, password, mailTo, subject, body.toString(), inlineImages);
             System.out.println("Email Enviado.");
+            return true;
         } catch (Exception ex) {
             System.out.println("Falha ao enviar email.");
             ex.printStackTrace();
+            return false;
         }
 	}
 	
-	private String generateTable(Lembrete lembrete){
+	private static String generateTable(Lembrete lembrete){
 		String table = "" +
 			"<table>" +
 				"<th> <h3>" + getFirstName(lembrete.getUsuario().getNome()) + ", Seu Lembrete! </h3></th>" +
@@ -133,7 +138,7 @@ public class Email {
         }
 	}
 	
-	private String getFirstName(String name){
+	private static String getFirstName(String name){
 		String[] nome = name.split(" ");
 		return nome[0];
 	}
