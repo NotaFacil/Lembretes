@@ -101,7 +101,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		}
 		return usuario;
 	}
-
+	
 	public List<Usuario> listar() {
 		List<Usuario> usuarios = null;
 

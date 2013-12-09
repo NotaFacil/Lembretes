@@ -10,6 +10,10 @@
     
     <title>NotaFácil | NotaFácil lembra você</title>
     <link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet">
+	
+	<script src="util/js/jquery-1.9.1.js"></script>
+	<script src="util/js/jquery.maskedinput.js"></script>
+    
     <script type="text/javascript">
     	function validarCampos(){
     		if(document.login.usuario.value == "" || document.login.senha.value == ""){
@@ -25,7 +29,7 @@
    			 	alert("Login e/ou senha inválido(s)!");
    			 	<% request.getSession().invalidate(); %>;
    			 	return;
-			}
+			} 
     		
     		if(nome == "existente"){
     			alert("Email e/ou Login já existente(s)!");
@@ -35,6 +39,12 @@
     		
     		if(nome == "cadastrado"){
     			alert("Confirme seu cadastro, através do email enviado para você.");
+   			 	<% request.getSession().invalidate(); %>;
+   			 	return;
+    		}
+    		
+    		if(nome == "confirmado"){
+    			alert("Bem Vindo ao NotaFacil, faça seu Login.");
    			 	<% request.getSession().invalidate(); %>;
    			 	return;
     		}
@@ -80,7 +90,6 @@
     		}
     		sign.submit();
     	}
-    	    	
   	</script>
   </head>
   <body>
@@ -116,10 +125,10 @@
 					          <input name="nome" type="text" placeholder="Nome" class="form-control">
 					        </div><br/>
 					        <div class="form-group" style="padding: 3px;">
-					          <input name="email" type="text" placeholder="email" class="form-control" >
+					          <input name="email" type="text" placeholder="email" class="form-control">
 					        </div><br/>
 					        <div class="form-group" style="padding: 3px;">
-					          <input name="celular" type="text" placeholder="celular" class="form-control celular" >
+					          <input name="celular" id="celular" type="text" placeholder="celular" class="form-control" > 
 					        </div><br/>
 					        <div class="form-group" style="padding: 3px;">
 					          <input name="login" type="text" placeholder="login" class="form-control">
@@ -157,4 +166,10 @@
       </footer>
     </div>
   </body>
+  
+  <script>
+		jQuery(function($){
+			   $("#celular").mask("(99)9999-9999?9");
+		});
+	</script>
 </html>

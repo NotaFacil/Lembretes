@@ -91,7 +91,7 @@ public class Email {
 	}
 	
 	private String generateUrl(Usuario usuario){
-		String url = "http://localhost:4567/NotaFacil/Lembretes?confirmacao="+ criptografar(String.valueOf(usuario.getEmail()));
+		String url = "http://localhost:8080/NotaFacil/cadastro.jsp?"+ criptografar(String.valueOf(usuario.getEmail()));
 		return url;
 	}
 	
@@ -138,7 +138,7 @@ public class Email {
 		return nome[0];
 	}
 	
-	private static String criptografar(String email){
+	public static String criptografar(String email){
         MessageDigest md;
 		try {
 			md = MessageDigest.getInstance("SHA-256");

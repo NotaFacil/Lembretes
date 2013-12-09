@@ -59,5 +59,13 @@
   <servlet-mapping>
   	<servlet-name>cadastrar</servlet-name>
   	<url-pattern>/cadastrar.do</url-pattern>
+  </servlet-mapping>  
+  <servlet>
+  	<servlet-name>confirmar</servlet-name>
+  	<servlet-class>com.controller.ConfirmarCadastro</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>confirmar</servlet-name>
+  	<url-pattern>/confirmarCadastro.do</url-pattern>
   </servlet-mapping>
 </web-app>
