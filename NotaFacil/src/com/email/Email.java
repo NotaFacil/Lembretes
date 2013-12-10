@@ -12,6 +12,7 @@ import com.bean.Usuario;
 
 public class Email {
 	private static String host, port, mailFrom, password;
+	private static String ipPorta = "10.66.55.45:8080";
 	
 	public Email(){
 		super();
@@ -96,7 +97,7 @@ public class Email {
 	}
 	
 	private String generateUrl(Usuario usuario){
-		String url = "http://localhost:8080/NotaFacil/cadastro.jsp?"+ criptografar(String.valueOf(usuario.getEmail()));
+		String url = "http://" + ipPorta + "/NotaFacil/cadastro.jsp?"+ criptografar(String.valueOf(usuario.getEmail()));
 		return url;
 	}
 	

@@ -26,6 +26,35 @@
 					return;
 				}
 			}
+	    	function validarCamposCadastro(form){
+	    		var titulo = form.titulo.value;
+	    		var descricao = form.descricao.value;
+	    		var local = form.local.value;
+	    		var dhInicio = form.dhInicio.value;
+	    		var dhFim = form.dhFim.value;
+	    		var dhLembrar = form.dhLembrar.value;
+	    		   
+	    		if (titulo == "") { 
+	    			 sign.titulo.focus();
+	    			 return;
+	    		}if(descricao == ""){
+	    			sign.descricao.focus();
+	   			 	return;
+	    		}if(local == ""){
+	    			sign.local.focus();
+	   			 	return;    			
+	    		}if(dhInicio == ""){
+	    			sign.dhInicio.focus();
+	   			 	return;    			
+	    		}if(dhFim == ""){
+	    			sign.dhFim.focus();
+	   			 	return;
+	    		}if(dhLembrar == ""){
+	    			sign.dhLembrar.focus();
+	   			 	return;
+	    		}
+	    		form.submit();
+	    	}
     	</script>
 		<!-- Fim script para validação de sessão -->
 
@@ -160,7 +189,7 @@
 					</ul>
 					
 					<form name="deslogar" method="POST" action="deslogar.do" class="navbar-form navbar-right">
-						<a href="configuracoes.jsp"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-cog"></span> Configurações</button></a>
+<!-- 						<a href="configuracoes.jsp"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-cog"></span> Configurações</button></a> -->
 						<button type="button" onclick="submit();" class="btn btn-info"><span class="glyphicon glyphicon-log-out"></span> Sair</button>
 					</form>
 				</div>
@@ -184,6 +213,7 @@
 				</table>
 				<div class="row">
 					<div class="window" id="janelaNovo">
+<!-- 						<form accept-charset="ISO-8859-1" name="frmInserir" onSubmit="return validarCamposCadastro(this);" method="POST" action="inserir.do"> -->
 						<form accept-charset="ISO-8859-1" name="frmInserir" method="POST" action="inserir.do">
 							<div class="panel panel-default">
 								<div class="panel-body">
@@ -267,6 +297,7 @@
 							</div>
 						</div>
 						<div class="window" id="janelaAlteracao${lembrete.id}">
+<%-- 							<form accept-charset="ISO-8859-1" name="frmAlteracao${lembrete.id}" onSubmit="return validarCamposCadastro(this);" method="POST" action="alterar.do"> --%>
 							<form accept-charset="ISO-8859-1" name="frmAlteracao${lembrete.id}" method="POST" action="alterar.do">
 								<div class="panel panel-default">
 									<div class="panel-body">

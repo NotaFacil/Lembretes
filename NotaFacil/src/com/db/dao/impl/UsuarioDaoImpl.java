@@ -142,11 +142,18 @@ public class UsuarioDaoImpl implements UsuarioDao {
 				filtro2.add(Restrictions.eq("senha", usuario.getSenha()));
 				usuarioResultado = (Usuario)filtro2.uniqueResult();
 			}
+			
+			if(usuarioResultado != null && usuarioResultado.getUsuarioConfirmado() == 1){
+				return usuarioResultado;	
+			}else{
+				return null;
+			}
 		} catch (Exception e) {
+			System.out.println("erro ao logar: " + e.getMessage());
 			if (this.transacao.isActive()) {
 				this.transacao.rollback();
 			}
-
+			return null;
 		} finally {
 			try {
 				if (this.sessao.isOpen()) {
@@ -156,6 +163,5 @@ public class UsuarioDaoImpl implements UsuarioDao {
 				System.out.println("Erro ao fechar operação de logar. Mensagem: " + e.getMessage());
 			}
 		}
-		return usuarioResultado;
 	}
 }
